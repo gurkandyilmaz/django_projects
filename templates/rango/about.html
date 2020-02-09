@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+
+<html>
+    <head>
+        <title>RANGO-about</title>
+    </head>
+
+    <body>
+        <h1>{{ about_page }} PAGE</h1>
+        <div>
+            hey there partner <br />
+                <strong>{{ boldmessage_about }}</strong><br/><br/>
+        </div>
+        
+        <div>
+            <a href="/rango/index">Index</a><br/><br/>
+            <a href="/">Main</a><br/><br/>
+            <img src="{% static 'images/about.png' %}" alt="Rango about"/>
+            <br/><br/>
+            
+        </div>
+    </body>
+
+</html>

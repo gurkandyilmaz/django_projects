@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+    <head>
+        <title>RANGO-index</title>
+    </head>
+
+    <body>
+        <h1>{{ index_page }} PAGE</h1>
+        <div>
+            hey there  <br/><br/>
+                <strong>Most Liked Categories</strong><br/><br/>
+        </div>
+        <div>
+            {% if category_ordered %}
+            <ul>
+                {% for cat in category_ordered %}
+                    <li><a href="/rango/category/{{ cat.slug }}">{{cat.name}}</a></li>
+                {% endfor %}
+            </ul>
+            {% else %}
+                <strong>There are no categories present</strong><br/><br/>
+            {% endif %}
+        </div>
+        <br/><strong>Most Viewed Pages</strong><br/><br/>
+        <div>
+            {% if page_ordered %}
+            <ul>
+                {% for page in page_ordered %}
+                <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+                {% endfor %}
+            </ul>    
+            {% else %}
+                <strong> There are no Page present</strong><br>
+            {% endif %}
+        </div>
+
+
+        <div>
+            <a href="/rango/add_category/">Add a New Category</a><br><br>
+            <a href="/rango/about">About</a><br/><br/>
+            <a href="/">Main</a><br/><br/>
+            <img src="{% static 'images/index.png' %}" alt="Picture of Rango"/>
+        </div>
+    </body>
+
+</html>
