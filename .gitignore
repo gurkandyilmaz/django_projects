@@ -10,4 +10,4 @@ media
 # Backup Files #
 *.bak
 
-
+*.vscode/
