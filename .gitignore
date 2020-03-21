@@ -10,6 +10,7 @@ media
 # Backup Files #
 *.bak
 
+.vscode/
 .vscode
 
 # Python # 
