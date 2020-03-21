@@ -1,0 +1,20 @@
+{% extends 'rango/base.html' %}
+
+{% block title_block %}
+	Page detail
+{% endblock %}
+
+{% block body_block %}
+
+	<p>
+		Page <strong>{{ page.title }}</strong> belongs to the Category : 
+		<a href="{% url 'rango:show-category' page.category.slug %}">{{ page.category.name }}</a>	
+	</p>
+	
+	<p>
+		Page url: <a href="{{page.url}}"> {{ page.url }}</a>
+	</p>
+	<p>
+		Page View Count : <strong>{{ page.views }}</strong>
+	</p>
+{% endblock %}

@@ -1,21 +1,24 @@
-<!DOCTYPE html>
 
+{% extends 'rango/base.html' %}
 {% load static %}
 
-<html>
-    <head>
-        <title>RANGO-main</title>
-    </head>
 
-    <body>
-        <h1> MAIN PAGE</h1>
-        
-        <div>
-            <br/><br/> <a href='/rango/index/'> Index Page</a>
-            <br/><br/> <a href='/rango/about/'> About Page</a><br/><br/>
-            <a href='/admin/'> Admin Page</a><br/><br/>
-            <img src="{% static 'images/main.jpg' %}" alt="Picture of Izmir"/>
-        </div>
-    </body>
+{% block title_block %}
+    MAIN PAGE
+{% endblock %}
 
-</html>
+{% block body_block %}
+
+    <h1> MAIN PAGE</h1>
+    {% if user.is_authenticated %}
+    	<strong>This is the Main Page</strong><br/>  
+	    <div>
+	<!--         <a href='{% url "admin:index" %}'> Admin Page</a><br/><br/> -->
+	        <img src="{% static 'images/main.jpg' %}" alt="Picture of Izmir"/>
+	    </div>
+	{% else %}
+		<strong>Outsider. You Cannot See or Edit or Do anyhting on this website. Please Log in.</strong>
+
+	{% endif %}
+
+{% endblock %}

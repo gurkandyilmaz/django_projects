@@ -19,9 +19,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rango import views
 
+
 urlpatterns = [
-    re_path('^$', views.main),
-    path('admin/', admin.site.urls),
+    re_path('^$', views.main, name="main_page"),
+    path('admin/', admin.site.urls, name="admin_page"),
     path('rango/', include('rango.urls')),
-    
+    re_path('^accounts/', include('registration.backends.simple.urls')),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

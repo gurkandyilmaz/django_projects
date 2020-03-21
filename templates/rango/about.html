@@ -1,27 +1,40 @@
-<!DOCTYPE html>
 
+
+{% extends 'rango/base.html' %}
 {% load static %}
 
+{% block title_block %}
+    ABOUT PAGE
+{% endblock %}
 
-<html>
-    <head>
-        <title>RANGO-about</title>
-    </head>
+{% block body_block %}
+	<h1>{{ about_page }} PAGE</h1>
 
-    <body>
-        <h1>{{ about_page }} PAGE</h1>
-        <div>
-            hey there partner <br />
-                <strong>{{ boldmessage_about }}</strong><br/><br/>
-        </div>
-        
-        <div>
-            <a href="/rango/index">Index</a><br/><br/>
-            <a href="/">Main</a><br/><br/>
-            <img src="{% static 'images/about.png' %}" alt="Rango about"/>
-            <br/><br/>
-            
-        </div>
-    </body>
+	<div class="jumbotron">
+    {% if user.is_authenticated %}
+	    <div>
+	            <strong>This is the About Page.</strong><br/><br/>
+	    </div>
+    
+	    <div>
+	        <img src="{% static 'images/about.png' %}" alt="Rango about"/>
+	    </div>
+	{% else %}
+		<strong>Outsider. You Cannot See or Edit or Do anyhting on this website. Please Log in.</strong>
+	{% endif %}
 
-</html>
+
+	</div>
+	<button class="btn btn-primary" onclick="alert('You clicked the button using JS.');"> Click me JS</button>
+
+	<button class="btn btn-primary" id="about-btn"> Click me JS on speed</button>
+	
+
+	<p>This is example</p><br/>
+	<p>This is example 2</p>
+
+	<div id="msg">Hello - I'm here for a Jquery Example too</div>
+
+
+
+{% endblock %}
